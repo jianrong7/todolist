@@ -1,0 +1,51 @@
+html {
+    top: 0;
+    left: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    font-size: 20px;
+    color: #edeff2;
+    font-weight: bold;
+    font-family: 'Chelsea Market', cursive;
+    background-color: #333333;
+    width: 100vw;
+    height: 5vh;
+    margin-left: -10px;
+    margin-top: -10px;
+    top: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    left: 0;
+    border-bottom: 3px solid black;
+}
+#logo {
+    height: 20px;
+    width: 20px;
+    margin-left: 2%;
+    background-color: #edeff2;
+    padding: 3px;
+    border-radius: 5px;;
+}
+.sidebar {
+    border-right: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 80vh;
+    color: white;
+    margin-left: -15px;
+    padding-left: 15px;
+    background-color: #222222;
+}
+.list {
+
+}
+#addIcon {
+    height: 15px;
+    width: 15px;
+}

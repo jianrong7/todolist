@@ -51,6 +51,7 @@ h2, .lists, #addList {
     font-weight: bold;
     border-bottom: 2px solid salmon;
     border-radius: 2px;
+    padding-bottom: 5px;
 }
 .list {
     margin-bottom: 5%;
@@ -66,6 +67,9 @@ h2, .lists, #addList {
     font-weight: bold;
     cursor: pointer;
 }
+#addList {
+    display: flex;
+}
 #addIcon {
     height: 15px;
     width: 15px;
@@ -74,5 +78,18 @@ h2, .lists, #addList {
 }
 #addIcon:hover {
     background-color: firebrick;
+    transform: scale(1.2);
     transition-duration: .2s;
+}
+#listAdder {
+    width: 70%;
+    margin-left: 10px;
+    padding-left: 5px;
+    border: none;
+    background-color: #222222;
+    color: white;
+    font-weight: bold;
+}
+#listAdder:focus {
+    outline: none;
 }

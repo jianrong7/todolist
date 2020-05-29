@@ -83,11 +83,12 @@ h2, .lists, #addList {
 }
 #addList {
     display: flex;
+    flex-direction: row;
 }
 .addIcon {
     height: 15px;
     width: 15px;
-    padding: 3%;
+    padding: 7px;
     border-radius: 50%;
     border: 2px solid transparent;
     cursor: pointer;

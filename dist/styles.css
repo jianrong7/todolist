@@ -84,13 +84,13 @@ h2, .lists, #addList {
 #addList {
     display: flex;
 }
-#addIcon {
+.addIcon {
     height: 15px;
     width: 15px;
     padding: 3%;
     border-radius: 50%;
 }
-#addIcon:hover {
+.addIcon:hover {
     background-color: firebrick;
     transform: scale(1.2);
     transition-duration: .2s;
@@ -106,4 +106,7 @@ h2, .lists, #addList {
 }
 #listAdder:focus {
     outline: none;
+}
+#listAdder::placeholder {
+    color: white;
 }

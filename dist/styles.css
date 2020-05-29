@@ -51,7 +51,7 @@ h2, .lists, #addList {
     font-weight: bold;
     border-bottom: 2px solid salmon;
     border-radius: 2px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 .list {
     margin-bottom: 5%;
@@ -66,6 +66,20 @@ h2, .lists, #addList {
     transition-duration: .2s;
     font-weight: bold;
     cursor: pointer;
+}
+.list:hover .close {
+    visibility: visible;
+}
+.close {
+    height: 15px;
+    width: 15px;
+    margin-top: 2px;
+    float: right;
+    visibility: hidden;
+}
+.close:hover {
+    transition-duration: .1s;
+    transform: scale(1.2)
 }
 #addList {
     display: flex;

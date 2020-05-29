@@ -97,6 +97,7 @@ h2, .lists, #addList {
 }
 #listAdder {
     width: 70%;
+    height: 30px;
     margin-left: 10px;
     padding-left: 5px;
     border: none;
@@ -109,4 +110,64 @@ h2, .lists, #addList {
 }
 #listAdder::placeholder {
     color: white;
+}
+.bodyContent {
+    display: flex;
+}
+.mainBar img {
+    height: 15px;
+    width: 15px;
+}
+.mainBar {
+    flex-grow: 4;
+    background-color: #3b3b3b;
+    text-align: center;
+    color: white;
+}
+.addTask {
+    display: flex;
+    margin: 20px 0px;
+    justify-content: center;
+}
+#taskAdder {
+    width: 300px;
+    height: 35px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border: none;
+    background-color: #222222;
+    color: white;
+    font-weight: bold;
+}
+#taskAdder:focus {
+    outline: none;
+}
+#taskAdder::placeholder {
+    color: white;
+}
+.addTaskIcon {
+    margin-top: 3px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+.addTaskIcon:hover {
+    border: 2px solid salmon;
+    border-radius: 50%;
+    transition-duration: .2s;
+}
+ul {
+    font-size: 18px;
+    width: 500px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+li {
+    list-style-type: none;
+    border-width: 50px;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-radius: 3px;
 }

@@ -5,5 +5,5 @@ import userInterface from './userInterface';
 const initializeOrganizer = (() => {
     const defaultContainer = TodoContainer("Get started");
 
-    }
+    
 })();

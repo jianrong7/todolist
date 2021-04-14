@@ -1,0 +1,16 @@
+:root {
+    --main-font-color: #8E929D;
+    --accent-font-color: #FFE8FF;
+    --background-color: #FFFFFF;
+    --accent-color: #AF7EEA;
+}
+
+.header {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.mainBody {
+    margin-top: 10px;
+}

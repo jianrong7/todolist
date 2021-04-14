@@ -22,7 +22,7 @@ const removeProject = (name) => {
         if (project.name === name) {
             projects.splice(projects.indexOf(project), 1)
         }
-    })
+    })  
 }
 
 function _getID() {

@@ -1,4 +1,7 @@
+// Initialise projects
 let projects = [];
+
+// Load projects from localStorage
 if (localStorage.getItem('projects') === null) {
     projects = [];
 } else {

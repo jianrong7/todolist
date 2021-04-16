@@ -56,10 +56,6 @@ const newTaskModal = (() => {
                 <input type="date" class="form-control" id="dueDate"></input>
             </div>
             <div class="mb-3">
-                <label for="dueDate" class="form-label">Due Date:</label>
-                <input type="date" class="form-control" id="dueDate"></input>
-            </div>
-            <div class="mb-3">
                 <label class="form-label">Priority:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="highPriority">
@@ -76,7 +72,6 @@ const newTaskModal = (() => {
             </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="newTaskBtn">Save changes</button>
         </div>
     </div>

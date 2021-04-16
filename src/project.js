@@ -56,14 +56,6 @@ const handleRemoveProject = (name) => {
     renderProjects()
 }
 // Handle active project
-
-/* <div class="row">
-<div class="col-9">Proj 1</div>
-<div class="col-3">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newTask">+ New Task</button>
-</div>
-</div> */
-
 const handleActiveProject = (e) => {
     console.log(e)
     // Make project on sidebar blue
@@ -90,7 +82,7 @@ const handleActiveProject = (e) => {
     newTaskBtn.innerHTML = "+ New Task"
 
     btnCol.appendChild(newTaskBtn)
-    
+
     row.appendChild(titleCol)
     row.appendChild(btnCol)
 

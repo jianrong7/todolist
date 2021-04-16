@@ -1,9 +1,17 @@
 import { headerLoad, newProjectLoad } from "./view"
-import { projectFactory, addProject, projects } from "./project"
+import { projectFactory, addProject, removeProject, projects } from "./project"
 import { taskFactory } from "./task"
+import { renderProject } from "./renderProject"
 import { newProjectModal, newTaskModal } from "./modal"
 
-addProject('hi')
-addProject('bye')
+const btns = document.querySelectorAll(".btn")
+btns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        const { target } = e
 
-console.log(projects)
+        if (target.id === "newProjectBtn") {
+            addProject()
+            console.log(projects)
+        }
+    })
+})

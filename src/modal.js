@@ -12,12 +12,14 @@ const newProjectModal = (() => {
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="newProjectName" class="form-label">Name:</label>
-                    <input class="form-control" id="newProjectName"></input>
+                    <form id="modalForm">
+                        <label for="newProjectName" class="form-label">Name:</label>
+                        <input type="text" name="projectName" class="form-control" id="newProjectName"></input>
+                    </form>        
                 </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="newProjectBtn">Save changes</button>
         </div>
     </div>`;
     newProjectModal.classList.add('modal', 'fade');
@@ -75,7 +77,7 @@ const newTaskModal = (() => {
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="newTaskBtn">Save changes</button>
         </div>
     </div>
     </div>`;

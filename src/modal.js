@@ -82,7 +82,7 @@ const newTaskModal = (() => {
     </div>
     </div>`;
     newTaskModel.classList.add('modal', 'fade');
-    newTaskModel.setAttribute('id', 'newTaks')
+    newTaskModel.setAttribute('id', 'newTask')
     newTaskModel.setAttribute('tabindex', '-1')
     newTaskModel.setAttribute('aria-labelledby', 'newTaskLabel')
     newTaskModel.setAttribute('aria-hidden', 'true')

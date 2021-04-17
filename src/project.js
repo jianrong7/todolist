@@ -1,5 +1,6 @@
 import { renderProjects } from "./renderProject";
-import { renderTasks, handleNewTask } from "./task"
+import { handleNewTask } from "./task"
+import { renderTasks } from "./renderTask"
 import { projects } from "./storage"
 
 // Factory function to create project

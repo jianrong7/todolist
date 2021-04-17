@@ -8,9 +8,9 @@ const renderProjects = (() => {
 
     projects.forEach(project => {
         const projectItem = document.createElement("a")
-        projectItem.classList.add("list-group-item", "list-group-item-action")
+        projectItem.classList.add("list-group-item", "list-group-item-action", "projectItems")
         projectItem.setAttribute("data-attr", project['id'])
-        projectItem.innerHTML = project['projectName']
+        projectItem.innerHTML = project['name']
         projectItem.addEventListener("click", (e) => {
             const { target } = e
             handleActiveProject(target)
@@ -23,7 +23,7 @@ const renderProjects = (() => {
         closeBtn.setAttribute("aria-label", "Close")
         closeBtn.setAttribute("id", "closeProject")
         closeBtn.addEventListener('click', () => {
-            handleRemoveProject(project['projectName'])
+            handleRemoveProject(project['name'])
         })
 
         projectItem.appendChild(closeBtn)

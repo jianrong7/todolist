@@ -3,7 +3,7 @@ import { headerLoad, newProjectLoad } from "./view"
 import { renderProjects } from "./renderProject"
 
 import { addProject } from "./project"
-import { taskFactory } from "./task"
+import { handleNewTask } from "./task"
 import { newProjectModal, newTaskModal } from "./modal"
     headerLoad()
     newProjectLoad()
@@ -17,6 +17,8 @@ btns.forEach(btn => {
             addProject()
             renderProjects()
         }
-
+        if (target.id === "newTaskBtn") {
+            handleNewTask(target)
+        }
     })
 })

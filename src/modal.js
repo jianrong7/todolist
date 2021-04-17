@@ -1,3 +1,5 @@
+import { handleNewTask } from "./task";
+
 // Add Project Modal
 const newProjectModal = (() => {
     const modalContainer = document.querySelector('.modalContainer');
@@ -43,39 +45,42 @@ const newTaskModal = (() => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="mb-3">
-                <label for="taskTitle" class="form-label">Title:</label>
-                <input class="form-control" id="taskTitle"></input>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="dueDate" class="form-label">Due Date:</label>
-                <input type="date" class="form-control" id="dueDate"></input>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Priority:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="highPriority">
-                    <label class="form-check-label" for="highPriority">High</label>
+            <form id="modalFormTask">
+                <div class="mb-3">
+                    <label for="taskTitle" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="taskTitle" name="taskTitle" required />
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="mediumPriority" checked>
-                    <label class="form-check-label" for="mediumPriority">Medium</label>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" id="description" rows="3" name="taskDescription" required></textarea>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="lowPriority">
-                    <label class="form-check-label" for="lowPriority">Low</label>
+                <div class="mb-3">
+                    <label for="dueDate" class="form-label">Due Date:</label>
+                    <input type="date" class="form-control" id="dueDate" name="taskDueDate" required />
                 </div>
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Priority:</label>
+                    <div class="form-check">
+                        <input class="form-check-input priority" type="radio" name="flexRadioDefault" id="highPriority">
+                        <label class="form-check-label" for="highPriority">High</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input priority" type="radio" name="flexRadioDefault" id="mediumPriority" checked>
+                        <label class="form-check-label" for="mediumPriority">Medium</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input priority" type="radio" name="flexRadioDefault" id="lowPriority">
+                        <label class="form-check-label" for="lowPriority">Low</label>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="newTaskBtn">Save changes</button>
         </div>
     </div>
     </div>`;
+
     newTaskModel.classList.add('modal', 'fade');
     newTaskModel.setAttribute('id', 'newTask')
     newTaskModel.setAttribute('tabindex', '-1')

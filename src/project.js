@@ -1,14 +1,12 @@
 import { renderProjects } from "./renderProject";
+import { renderTasks, handleNewTask } from "./task"
 import { projects } from "./storage"
 
 // Factory function to create project
 const projectFactory = (name) => {
-    const _id = _getID();
-    const tasks = [];
-    const addTask = (name) => {
-        tasks.push(name);
-    };
-    return { name, addTask, _id };
+    const id = _getID();
+    const tasks = [0];
+    return { name, id, tasks };
 };
 // Handle the adding of a new project
 const addProject = () => {
@@ -17,7 +15,7 @@ const addProject = () => {
     const formData = new FormData(form)
     const json = JSON.stringify(Object.fromEntries(formData));
     const jsonObject = JSON.parse(json)
-
+    let temp = projectFactory(jsonObject.projectName)
     // Check for duplicate name
     projects.forEach(project => {
         if (project.name === jsonObject['projectName']) {
@@ -25,8 +23,9 @@ const addProject = () => {
             return
         }
     })
-    jsonObject['id'] = _getID();
-    projects.push(jsonObject)
+    projects.push(temp)
+    console.log(temp.tasks)
+    console.log(projects, "27")
     localStorage.setItem('projects', JSON.stringify(projects))
 
     form.reset()
@@ -36,7 +35,7 @@ const removeProject = (name) => {
     // Identify project
     let prj;
     projects.forEach(project => {
-        if (name === project['projectName']) {
+        if (name === project['name']) {
             prj = project
         }
     })
@@ -57,7 +56,7 @@ const handleRemoveProject = (name) => {
 }
 // Handle active project
 const handleActiveProject = (e) => {
-    console.log(e)
+    console.log(e, "57/proj")
     // Make project on sidebar blue
     e.classList.add('active')
     // Display title of project
@@ -88,6 +87,7 @@ const handleActiveProject = (e) => {
 
     mainColumn.appendChild(row)
 
+    renderTasks(e)
 }
 // Generate unique ID for project
 function _getID() {

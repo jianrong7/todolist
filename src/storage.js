@@ -9,4 +9,9 @@ if (localStorage.getItem('projects') === null) {
     projects = projectsFromStorage;
 }
 
-export { projects }
+const refreshStorage = ((projects) => {
+    localStorage.clear()
+    localStorage.setItem('projects', JSON.stringify(projects))
+})
+
+export { projects, refreshStorage }

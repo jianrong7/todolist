@@ -1,7 +1,7 @@
 import { renderProjects, renderProjectHeader } from "./renderProject";
 import { handleNewTask } from "./task"
 import { renderTasks } from "./renderTask"
-import { projects } from "./storage"
+import { projects, refreshStorage } from "./storage"
 
 // Factory function to create project
 const projectFactory = (name) => {
@@ -27,7 +27,7 @@ const addProject = () => {
     projects.push(temp)
     // console.log(temp.tasks)
     // console.log(projects, "27")
-    localStorage.setItem('projects', JSON.stringify(projects))
+    refreshStorage(projects)
 
     form.reset()
 };
@@ -47,8 +47,7 @@ const removeProject = (name) => {
         projects = []
     }
     // Set projects in localStorage
-    localStorage.clear()
-    localStorage.setItem('projects', JSON.stringify(projects))
+    refreshStorage(projects)
 }
 // Handle removal of projects
 const handleRemoveProject = (name) => {

@@ -1,4 +1,4 @@
-import { projects } from "./storage"
+import { projects, refreshStorage } from "./storage"
 import { renderTasks } from "./renderTask"
 import { projectFactory } from "./project"
 
@@ -52,11 +52,8 @@ const handleNewTask = (e) => {
             project.tasks.push(task)
         }
     })
-    
-    // console.log(projects)
-    localStorage.clear()
-    localStorage.setItem('projects', JSON.stringify(projects))
-    renderTasks(e)
+    refreshStorage(projects)
+    renderTasks()
 }
 
 function _getID() {

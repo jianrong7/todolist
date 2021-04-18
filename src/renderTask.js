@@ -1,8 +1,33 @@
-import { projects } from "./storage"
+import { projects, refreshStorage } from "./storage"
 import { determineActiveProject } from "./task"
+// Remove task from storage
+const removeTask = (e) => {
+    const { target } = e
+    console.log(target.parentElement.innerText)
+    const activeProjectName = determineActiveProject()
+    const taskName = target.parentElement.innerText
+    let tsk, prj;
+    projects.forEach(project => {
+        if (project['name'] === activeProjectName) {
+            prj = project
+            project.tasks.forEach(task => {
+                if (task.name === taskName) {
+                    tsk = task
+                }
+            })
+        }
+    })
+    console.log(prj)
+    let projIndex = projects.indexOf(prj)
+    console.log(projIndex)
+    projects[projIndex].tasks.splice(projects[projIndex].tasks.indexOf(tsk), 1)
+    console.log(projects[projIndex].tasks)
+    renderTasks()
+    refreshStorage(projects)
+}
 // Render tasks from storage
-const renderTasks = (e) => {
-    let activeProjectName = determineActiveProject()
+const renderTasks = () => {
+    const activeProjectName = determineActiveProject()
 
     const mainColumn = document.querySelector("#mainColumn")
     if (mainColumn.childNodes[1]) {
@@ -18,7 +43,9 @@ const renderTasks = (e) => {
         if (project['name'] === activeProjectName) {
             // console.log(project.tasks, "14/task")
             project.tasks.forEach(task => {
-
+                if (task === 0) {
+                    return
+                }
                 // console.log(task, 'what')
 
                 const item = document.createElement("li")
@@ -29,6 +56,9 @@ const renderTasks = (e) => {
                 checkbox.setAttribute("type", "checkbox")
                 checkbox.setAttribute("value", "")
                 checkbox.setAttribute("aria-label", "...")
+                checkbox.addEventListener("click", (e) => {
+                    removeTask(e)
+                })
 
                 const taskName = document.createElement("span")
                 taskName.innerHTML = task.name
@@ -43,8 +73,6 @@ const renderTasks = (e) => {
         }
     })
     mainColumn.appendChild(mainRow)
-
-    
 };
 
 export { renderTasks }

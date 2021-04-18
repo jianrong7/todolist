@@ -31,6 +31,8 @@ const renderTasks = (e) => {
     console.log(e.getAttribute('data-attr'), "6 HAHA")
     let id = e.getAttribute('data-attr');
 
+    const mainColumn = document.querySelector("#mainColumn")
+
     const mainRow = document.createElement("div")
     mainRow.classList.add("row")
 
@@ -41,7 +43,9 @@ const renderTasks = (e) => {
         if (project['id'] === id) {
             console.log(project.tasks, "14/task")
             project.tasks.forEach(task => {
-                console.log(task)
+
+                console.log(task, 'what')
+
                 const item = document.createElement("li")
                 item.classList.add("list-group-item")
 
@@ -51,15 +55,21 @@ const renderTasks = (e) => {
                 checkbox.setAttribute("value", "")
                 checkbox.setAttribute("aria-label", "...")
 
+                const taskName = document.createElement("span")
+                taskName.innerHTML = task.name
+
                 item.appendChild(checkbox)
-                item.appendChild(task.name)
+                item.appendChild(taskName)
 
                 list.appendChild(item)
+
+                mainRow.appendChild(list)
             })
         }
     })
+    mainColumn.appendChild(mainRow)
 
-    mainRow.appendChild(list)
+    
 };
 
 export { renderTasks }

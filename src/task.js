@@ -48,12 +48,12 @@ const handleNewTask = (e) => {
 
     projects.forEach(project => {
         if (currentProjectName === project['name']) {
-            console.log(project)
+            // console.log(project)
             project.tasks.push(task)
         }
     })
     
-    console.log(projects)
+    // console.log(projects)
     localStorage.clear()
     localStorage.setItem('projects', JSON.stringify(projects))
     renderTasks(e)
@@ -63,4 +63,4 @@ function _getID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-export { taskFactory, handleNewTask }
+export { taskFactory, handleNewTask, determineActiveProject }

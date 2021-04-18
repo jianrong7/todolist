@@ -5,6 +5,7 @@ import { renderProjects } from "./renderProject"
 import { addProject } from "./project"
 import { handleNewTask } from "./task"
 import { newProjectModal, newTaskModal } from "./modal"
+import { renderTasks } from "./renderTask"
     headerLoad()
     newProjectLoad()
     renderProjects()
@@ -12,7 +13,7 @@ const btns = document.querySelectorAll("button")
 btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         const { target } = e
-        console.log(target)
+        // console.log(target)
         if (target.id === "newProjectBtn") {
             addProject()
             renderProjects()

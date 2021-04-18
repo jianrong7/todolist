@@ -1,12 +1,13 @@
 import { projects } from "./storage"
+import { determineActiveProject } from "./task"
 // Render tasks from storage
 const renderTasks = (e) => {
-    let proj;
-    console.log(e.getAttribute('data-attr'), "6 HAHA")
-    let id = e.getAttribute('data-attr');
+    let activeProjectName = determineActiveProject()
 
     const mainColumn = document.querySelector("#mainColumn")
-
+    if (mainColumn.childNodes[1]) {
+        mainColumn.removeChild(mainColumn.childNodes[1])
+    }
     const mainRow = document.createElement("div")
     mainRow.classList.add("row")
 
@@ -14,11 +15,11 @@ const renderTasks = (e) => {
     list.classList.add("list-group")
 
     projects.forEach(project => {
-        if (project['id'] === id) {
-            console.log(project.tasks, "14/task")
+        if (project['name'] === activeProjectName) {
+            // console.log(project.tasks, "14/task")
             project.tasks.forEach(task => {
 
-                console.log(task, 'what')
+                // console.log(task, 'what')
 
                 const item = document.createElement("li")
                 item.classList.add("list-group-item")

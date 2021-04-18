@@ -25,8 +25,6 @@ const addProject = () => {
         }
     })
     projects.push(temp)
-    // console.log(temp.tasks)
-    // console.log(projects, "27")
     refreshStorage(projects)
 
     form.reset()
@@ -56,7 +54,9 @@ const handleRemoveProject = (name) => {
 }
 // Handle active project
 const handleActiveProject = (e) => {
-    // console.log(e, "57/proj")
+    if (e.id === "closeProject") {
+        return
+    }
     // Make project on sidebar blue
     const projectItems = document.querySelectorAll(".projectItems")
     projectItems.forEach(projectItem => {

@@ -3,7 +3,6 @@ import { determineActiveProject } from "./task"
 // Remove task from storage
 const removeTask = (e) => {
     const { target } = e
-    console.log(target.parentElement.innerText)
     const activeProjectName = determineActiveProject()
     const taskName = target.parentElement.innerText
     let tsk, prj;
@@ -17,11 +16,8 @@ const removeTask = (e) => {
             })
         }
     })
-    console.log(prj)
     let projIndex = projects.indexOf(prj)
-    console.log(projIndex)
     projects[projIndex].tasks.splice(projects[projIndex].tasks.indexOf(tsk), 1)
-    console.log(projects[projIndex].tasks)
     renderTasks()
     refreshStorage(projects)
 }
@@ -41,13 +37,10 @@ const renderTasks = () => {
 
     projects.forEach(project => {
         if (project['name'] === activeProjectName) {
-            // console.log(project.tasks, "14/task")
             project.tasks.forEach(task => {
                 if (task === 0) {
                     return
                 }
-                // console.log(task, 'what')
-
                 const item = document.createElement("li")
                 item.classList.add("list-group-item")
 

@@ -1,5 +1,5 @@
 import { handleRemoveProject, handleActiveProject } from "./project";
-import { projects } from "./storage"
+import { projects, refreshStorage } from "./storage"
 // Render projects from storage
 const renderProjects = (() => {
     const sidebar = document.querySelector("#sidebarProjects")

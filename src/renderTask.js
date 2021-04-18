@@ -1,30 +1,4 @@
-import { handleRemoveProject, handleActiveProject } from "./project";
 import { projects } from "./storage"
-
-// <!-- <div class="row">
-// <ul class="list-group">
-//     <li class="list-group-item">
-//       <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-//       First checkbox
-//     </li>
-//     <li class="list-group-item">
-//       <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-//       Second checkbox
-//     </li>
-//     <li class="list-group-item">
-//       <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-//       Third checkbox
-//     </li>
-//     <li class="list-group-item">
-//       <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-//       Fourth checkbox
-//     </li>
-//     <li class="list-group-item">
-//       <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-//       Fifth checkbox
-//     </li>
-// </ul>
-// </div> -->
 // Render tasks from storage
 const renderTasks = (e) => {
     let proj;

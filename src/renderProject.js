@@ -31,5 +31,34 @@ const renderProjects = (() => {
         sidebar.appendChild(projectItem)
     })
 });
+const renderProjectHeader = ((e) => {
+    const mainColumn = document.querySelector('#mainColumn')
+    mainColumn.innerHTML = ""
 
-export { renderProjects }
+    const row = document.createElement("div")
+    row.classList.add("row")
+
+    const titleCol = document.createElement("div")
+    titleCol.classList.add("col-9")
+    titleCol.innerHTML = e.innerText
+
+    const btnCol = document.createElement("div")
+    btnCol.classList.add("col-3")
+
+    // Add new task button
+    const newTaskBtn = document.createElement("button")
+    newTaskBtn.classList.add("btn", "btn-primary")
+    newTaskBtn.setAttribute("type", "button")
+    newTaskBtn.setAttribute("data-bs-toggle", "modal")
+    newTaskBtn.setAttribute("data-bs-target", "#newTask")
+    newTaskBtn.innerHTML = "+ New Task"
+
+    btnCol.appendChild(newTaskBtn)
+
+    row.appendChild(titleCol)
+    row.appendChild(btnCol)
+
+    mainColumn.appendChild(row)
+})
+
+export { renderProjects, renderProjectHeader }

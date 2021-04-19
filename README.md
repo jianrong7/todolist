@@ -1,6 +1,3 @@
-https://github.com/zainthedev/todo-list/blob/master/src/project-object.js
-https://zakarya-mks.github.io/ToDoers/
-
 # To Do List
 
 ### [Live Demo](https://jianrong7.github.io/todolist/)

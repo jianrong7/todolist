@@ -55,9 +55,13 @@ const handleNewTask = (e) => {
     refreshStorage(projects)
     renderTasks()
 }
+const handleEditTask = (e) => {
+    const { target } = e
+    console.log(target.parentElement.parentElement)
+}
 
 function _getID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-export { handleNewTask, determineActiveProject }
+export { handleNewTask, determineActiveProject, handleEditTask }

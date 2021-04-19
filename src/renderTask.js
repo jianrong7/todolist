@@ -1,5 +1,5 @@
 import { projects, refreshStorage } from "./storage"
-import { determineActiveProject } from "./task"
+import { determineActiveProject, handleEditTask } from "./task"
 // Remove task from storage
 const removeTask = (e) => {
     const { target } = e
@@ -43,6 +43,7 @@ const renderTasks = () => {
                 }
                 const item = document.createElement("li")
                 item.classList.add("list-group-item")
+                item.setAttribute("data-attr", task.name)
 
                 const checkbox = document.createElement("input")
                 checkbox.classList.add("form-check-input", "me-1")
@@ -56,8 +57,45 @@ const renderTasks = () => {
                 const taskName = document.createElement("span")
                 taskName.innerHTML = task.name
 
+                const icons = document.createElement("a")
+                icons.classList.add("icons")
+                // deleteIcon
+                // const deleteIcon = document.createElement("img")
+                // deleteIcon.src = "/../dist/assets/delete.png"
+                // deleteIcon.classList.add("icon", "deleteIcon")
+                // editIcon
+
+                // const newTaskBtn = document.createElement("button")
+                // newTaskBtn.classList.add("btn", "btn-primary")
+                // newTaskBtn.setAttribute("type", "button")
+                // newTaskBtn.setAttribute("data-bs-toggle", "modal")
+                // newTaskBtn.setAttribute("data-bs-target", "#newTask")
+                // newTaskBtn.innerHTML = "+ New Task"
+
+                const editIconBtn = document.createElement("button")
+                editIconBtn.classList.add("btn", "btn-primary")
+                editIconBtn.setAttribute("type", "button")
+                editIconBtn.setAttribute("data-bs-toggle", "modal")
+                editIconBtn.setAttribute("data-bs-target", "#newTask")
+                editIconBtn.style.backgroundColor = "white"
+                editIconBtn.style.border = "0px"
+
+                const editIcon = document.createElement("img")
+                editIcon.src = "/../dist/assets/edit.png"
+                editIcon.classList.add("icon", "editIcon")
+                editIcon.addEventListener("click", (e) => {
+                    handleEditTask(e)
+                })
+
+                editIconBtn.appendChild(editIcon)
+
+                // icons.appendChild(deleteIcon)
+                icons.appendChild(editIconBtn)
+
+
                 item.appendChild(checkbox)
                 item.appendChild(taskName)
+                item.appendChild(icons)
 
                 list.appendChild(item)
 

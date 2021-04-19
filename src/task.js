@@ -85,9 +85,13 @@ const validatePriorityEdit = () => {
 }
 const handleEditTask = (e) => {
     const { target } = e
-    currentTaskName = target.parentElement.parentElement.parentElement.getAttribute('data-attr')
+    if (target.classList.contains("icon")) {
+        currentTaskName = target.parentElement.parentElement.parentElement.getAttribute('data-attr')
+    } else if (target.classList.contains("list-group-item")) {
+        currentTaskName = target.getAttribute('data-attr')
+    }
+    
     let currentProjectName = determineActiveProject()
-    let prj;
     const taskTitleValue = document.querySelector("#taskTitleEdit")
     const taskDescriptionValue = document.querySelector("#taskDescriptionEdit")
     const taskDueDateValue = document.querySelector("#taskDueDateEdit")
@@ -144,6 +148,7 @@ const saveEditTask = (e) => {
     refreshStorage(projects)
     renderTasks()
 }
+
 
 function _getID() {
     return '_' + Math.random().toString(36).substr(2, 9);

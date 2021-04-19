@@ -41,6 +41,11 @@ const renderTasks = () => {
                 if (task === 0) {
                     return
                 }
+
+                const clickableItem = document.createElement("a")
+                
+                
+
                 const item = document.createElement("li")
                 item.classList.add("list-group-item")
                 item.setAttribute("data-attr", task.name)
@@ -59,18 +64,6 @@ const renderTasks = () => {
 
                 const icons = document.createElement("a")
                 icons.classList.add("icons")
-                // deleteIcon
-                // const deleteIcon = document.createElement("img")
-                // deleteIcon.src = "/../dist/assets/delete.png"
-                // deleteIcon.classList.add("icon", "deleteIcon")
-                // editIcon
-
-                // const newTaskBtn = document.createElement("button")
-                // newTaskBtn.classList.add("btn", "btn-primary")
-                // newTaskBtn.setAttribute("type", "button")
-                // newTaskBtn.setAttribute("data-bs-toggle", "modal")
-                // newTaskBtn.setAttribute("data-bs-target", "#newTask")
-                // newTaskBtn.innerHTML = "+ New Task"
 
                 const editIconBtn = document.createElement("button")
                 editIconBtn.classList.add("btn", "btn-primary")
@@ -80,6 +73,8 @@ const renderTasks = () => {
                 editIconBtn.style.backgroundColor = "white"
                 editIconBtn.style.border = "0px"
                 editIconBtn.addEventListener("click", (e) => {
+                    const { target } = e
+                    console.log(target)
                     handleEditTask(e)
                 })
 
@@ -89,15 +84,22 @@ const renderTasks = () => {
 
                 editIconBtn.appendChild(editIcon)
 
-                // icons.appendChild(deleteIcon)
                 icons.appendChild(editIconBtn)
-
 
                 item.appendChild(checkbox)
                 item.appendChild(taskName)
                 item.appendChild(icons)
 
-                list.appendChild(item)
+                clickableItem.appendChild(item)
+                clickableItem.setAttribute("data-bs-toggle", "modal")
+                clickableItem.setAttribute("data-bs-target", "#editTask")
+                clickableItem.addEventListener("click", (e) => {
+                    const { target } = e
+                    console.log(target)
+                    handleEditTask(e)
+                })
+
+                list.appendChild(clickableItem)
 
                 mainRow.appendChild(list)
             })

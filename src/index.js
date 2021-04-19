@@ -1,8 +1,8 @@
 import { headerLoad, newProjectLoad } from "./view"
 import { renderProjects } from "./renderProject"
 import { addProject } from "./project"
-import { handleNewTask } from "./task"
-import { newProjectModal, newTaskModal } from "./modal"
+import { handleEditTask, handleNewTask, saveEditTask } from "./task"
+import { newProjectModal, newTaskModal, editTaskModal } from "./modal"
 
     headerLoad()
     newProjectLoad()
@@ -18,6 +18,9 @@ btns.forEach(btn => {
         }
         if (target.id === "newTaskBtn") {
             handleNewTask(target)
+        }
+        if (target.id === 'editTaskBtn') {
+            saveEditTask(target)
         }
     })
 })

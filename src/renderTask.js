@@ -76,16 +76,16 @@ const renderTasks = () => {
                 editIconBtn.classList.add("btn", "btn-primary")
                 editIconBtn.setAttribute("type", "button")
                 editIconBtn.setAttribute("data-bs-toggle", "modal")
-                editIconBtn.setAttribute("data-bs-target", "#newTask")
+                editIconBtn.setAttribute("data-bs-target", "#editTask")
                 editIconBtn.style.backgroundColor = "white"
                 editIconBtn.style.border = "0px"
+                editIconBtn.addEventListener("click", (e) => {
+                    handleEditTask(e)
+                })
 
                 const editIcon = document.createElement("img")
                 editIcon.src = "/../dist/assets/edit.png"
                 editIcon.classList.add("icon", "editIcon")
-                editIcon.addEventListener("click", (e) => {
-                    handleEditTask(e)
-                })
 
                 editIconBtn.appendChild(editIcon)
 

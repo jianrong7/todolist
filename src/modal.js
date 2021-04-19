@@ -89,4 +89,61 @@ const newTaskModal = (() => {
 
     modalContainer.appendChild(newTaskModel);
 })();
-export { newProjectModal, newTaskModal }
+// Edit Task Modal
+const editTaskModal = (() => {
+    const modalContainer = document.querySelector('.modalContainer');
+    
+    const editTaskModal = document.createElement("div");
+    editTaskModal.innerHTML = `
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="editTaskLabel">Edit Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="modalFormEditTask">
+                <div class="mb-3">
+                    <label for="taskTitleEdit" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="taskTitleEdit" name="taskTitleEdit" required />
+                </div>
+                <div class="mb-3">
+                    <label for="taskDescriptionEdit" class="form-label">Description:</label>
+                    <textarea class="form-control" id="taskDescriptionEdit" rows="3" name="taskDescriptionEdit" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="taskDueDateEdit" class="form-label">Due Date:</label>
+                    <input type="date" class="form-control" id="taskDueDateEdit" name="taskDueDateEdit" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Priority:</label>
+                    <div class="form-check">
+                        <input class="form-check-input priorityEdit" type="radio" name="flexRadioDefault" id="highPriorityEdit">
+                        <label class="form-check-label" for="highPriority">High</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input priorityEdit" type="radio" name="flexRadioDefault" id="mediumPriorityEdit" checked>
+                        <label class="form-check-label" for="mediumPriority">Medium</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input priorityEdit" type="radio" name="flexRadioDefault" id="lowPriorityEdit">
+                        <label class="form-check-label" for="lowPriority">Low</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="editTaskBtn">Save changes</button>
+        </div>
+    </div>
+    </div>`;
+
+    editTaskModal.classList.add('modal', 'fade');
+    editTaskModal.setAttribute('id', 'editTask')
+    editTaskModal.setAttribute('tabindex', '-1')
+    editTaskModal.setAttribute('aria-labelledby', 'newTaskLabel')
+    editTaskModal.setAttribute('aria-hidden', 'true')
+
+    modalContainer.appendChild(editTaskModal);
+})();
+export { newProjectModal, newTaskModal, editTaskModal }
